@@ -55,9 +55,12 @@ function App() {
   return (
     <>
       <div
-        className='w-full h-screen flex justify-center md:justify-start items-center p-5 md:pl-20 md:p-0 bg-[center_center] md:bg-[center-left] bg-no-repeat bg-cover'
+        className='w-full h-screen flex justify-center md:justify-start items-center p-5 md:pl-20 md:p-0'
         style={{
-          background: `url(${bgImage})`
+          background: `url(${bgImage})`,
+          backgroundPosition: "center",
+          backgroundSize:"cover",
+          backgroundRepeat:"no-repeat"
         }}>
 
         <div className="w-full max-w-lg flex flex-col items-center gap-7 shadow-md rounded-xl px-5 py-7 text-gray-400 bg-gray-800/70 backdrop-blur-xl">
