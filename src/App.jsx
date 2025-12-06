@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
-import './index.css'
+import './index.css';
+import bgImage from './assets/bg-image2.jpeg';
 
 function App() {
   const [length, setLength] = useState(0);
@@ -53,15 +54,19 @@ function App() {
 
   return (
     <>
-      <div className='w-full h-screen flex justify-center items-center p-5 md:p-0'>
+      <div
+        className='w-full h-screen flex justify-center md:justify-start items-center p-5 md:pl-20 md:p-0 bg-[center_center] md:bg-[center-left] bg-no-repeat bg-cover'
+        style={{
+          background: `url(${bgImage})`
+        }}>
 
-        <div className="w-full max-w-md flex flex-col items-center gap-7 shadow-md rounded-lg px-4 py-5 text-gray-400 bg-gray-800">
+        <div className="w-full max-w-lg flex flex-col items-center gap-7 shadow-md rounded-xl px-5 py-7 text-gray-400 bg-gray-800/70 backdrop-blur-xl">
           <h1 className="text-white text-center font-bold text-xl md:text-3xl">Password Generator</h1>
-          <div className="flex shadow rounded-lg overflow-hidden mb-4">
+          <div className="flex shadow rounded-lg overflow-hidden mb-4 w-[80%]">
             <input
               type="text"
               value={password}
-              className='outline-none w-full py-1 px-3 bg-white text-black'
+              className='outline-none w-full py-2 px-4 bg-white text-black'
               placeholder='password'
               readOnly
               ref={passwordRef}
@@ -85,7 +90,7 @@ function App() {
             <div className="flex justify-between items-center gap-3">
               <label htmlFor="numberInput">Numbers:</label>
               <input
-                className='bg-blue-600'
+                className="cursor-pointer"
                 type="checkbox"
                 defaultChecked={numAllowed}
                 id="numberInput"
@@ -98,6 +103,7 @@ function App() {
             <div className="flex justify-between items-center gap-3">
               <label htmlFor="charAllowed">Include Symbols</label>
               <input
+                className="cursor-pointer"
                 type="checkbox"
                 defaultChecked={charAllowed}
                 id="charAllowed"
@@ -110,6 +116,7 @@ function App() {
             <div className="flex justify-between items-center gap-3">
               <label htmlFor="smallCharAllowed">Small Characters:</label>
               <input
+                className="cursor-pointer"
                 type="checkbox"
                 defaultChecked={smallCharAllowed}
                 id="smallCharAllowed"
